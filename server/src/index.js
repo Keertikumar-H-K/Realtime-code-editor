@@ -12,8 +12,22 @@ dotenv.config();
 const app = express();
 const httpServer = createServer(app);
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://realtime-code-editor-alpha.vercel.app',
+  process.env.CLIENT_URL,
+].filter(Boolean);
+
 const corsOptions = {
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  origin: (origin, callback) => {
+    // Allow requests with no origin (mobile apps, curl, Postman)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'DELETE'],
   credentials: true
 };
@@ -27,7 +41,6 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'CodeSync server is running' });
 });
 
-// ✅ FIX: Add transports to prevent WebSocket connection failures
 const io = new Server(httpServer, {
   cors: corsOptions,
   transports: ['websocket', 'polling'],
@@ -47,6 +60,7 @@ const PORT = process.env.PORT || 3001;
 httpServer.listen(PORT, () => {
   console.log(`🚀 CodeSync server running on port ${PORT}`);
   console.log(`📡 Socket.io listening for connections`);
+  console.log(`✅ Allowed origins: ${allowedOrigins.join(', ')}`);
 });
 
 export { app, io };
