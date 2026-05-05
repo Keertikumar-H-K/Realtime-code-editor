@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeSync - Real-Time Code Collaboration</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="font-sans">
+    <div id="root"></div>
+
+    <!--
+      reCAPTCHA container — MUST stay here in index.html, outside React.
+      If placed inside a React component, React will remove it on re-render
+      causing: "reCAPTCHA client element has been removed: 0"
+    -->
+    <div id="recaptcha-container"></div>
+
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
