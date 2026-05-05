@@ -9,10 +9,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/assets/index-Ca2MlbVK.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DloMsRFK.css">
+    <script type="module" crossorigin src="/assets/index-Idd86DCN.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BIzI_lTJ.css">
   </head>
   <body class="font-sans">
-    <div id="root"></div>
+    <div id="root"></div>
+
+    <!--
+      reCAPTCHA container — MUST stay here in index.html, outside React.
+      If placed inside a React component, React will remove it on re-render
+      causing: "reCAPTCHA client element has been removed: 0"
+    -->
+    <div id="recaptcha-container"></div>
+
   </body>
 </html>
