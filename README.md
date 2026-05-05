@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CodeSync – Real-Time Code Collaboration Platform
 
 A production-level full-stack web application for real-time code collaboration. Multiple users can simultaneously edit code in shared rooms with live synchronization, chat, and code execution capabilities.
@@ -226,3 +227,7 @@ MIT License - feel free to use this project for learning or commercial purposes.
 ---
 
 Built with ❤️ using React, Node.js, and Socket.io
+=======
+# Realtime-code-editor
+Real-time collaborative code editor with WebSocket sync, multi-language execution, and team presence
+>>>>>>> c4a373443b8610f33dee1691fad692414d15090d
